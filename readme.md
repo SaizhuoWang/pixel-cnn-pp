@@ -29,8 +29,8 @@ python main.py
 For questions / comments / requests, feel free to send me an email.\
 Happy generative modelling :)
 
-### Using PixelCNN++ in DEEPSEC
-## Training your own model
+## Using PixelCNN++ in DEEPSEC
+### 1. Training your own model
 To train your own PixelCNN++ model, run `main.py` and customize it according to the parameters of the codes.\
 For example, to train a CIFAR10 model using default parameters, run `main.py` as follows:
 ```
@@ -41,15 +41,21 @@ For MNIST datasets, the command is
 python main.py --dataset mnist
 ```
 
-## Loading pretrained model
+### 2. Loading pretrained model
 The loading path of model's parameters is 
-```DEEPSEC/Defenses/DefenseMethods/External/pixel_cnn_pp/models```
+```
+DEEPSEC/Defenses/DefenseMethods/External/pixel_cnn_pp/models
+```
 And the format of the parameter file is 
-``` '{}_pixel_cnn.pth'.format(Dataset) ```.
+``` 
+'{}_pixel_cnn.pth'.format(Dataset) 
+```
 For example, if you have trained a CIFAR10 model, you should rename the parameter file as `CIFAR10_pixel_cnn.pth`
-and put it to ```DEEPSEC/Defenses/DefenseMethods/External/pixel_cnn_pp/models/```
+and put it to ```DEEPSEC/Defenses/DefenseMethods/External/pixel_cnn_pp/models/```\
+Please note that in our implementation of DEEPSEC, the structure of PixelCNN model is set as default(default parameters are used during training).\
+You can customize your own PixelCNN model and modify the corresponding parts in DEEPSEC.
 
-## Configuring PixelCNN++ in DEEPSEC
+### 3. Configuring PixelCNN++ in DEEPSEC
 As mentioned above, to use PixelCNN in DEEPSEC, this repo should be like:
 ```DEEPSEC/Defenses/DefenseMethods/External/pixel_cnn_pp```.
 After putting your own model parameter files into the `models/` file, you can use PixelDefend utility supported in DEEPSEC!

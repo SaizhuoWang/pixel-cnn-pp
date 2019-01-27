@@ -1,4 +1,4 @@
-from utils import * 
+from .utils import *
 import pdb
 import torch 
 import torch.nn as nn
@@ -139,5 +139,5 @@ class gated_resnet(nn.Module):
         x = self.dropout(x)
         x = self.conv_out(x)
         a, b = torch.chunk(x, 2, dim=1)
-        c3 = a * F.sigmoid(b)
+        c3 = a * torch.sigmoid(b)
         return og_x + c3
